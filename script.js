@@ -1,3 +1,16 @@
+/* =========================================================
+   EMAILJS CONFIGURATION
+========================================================= */
+
+const EMAILJS_PUBLIC_KEY = "jHYMESrzv7Mk1VxFg";
+const EMAILJS_SERVICE_ID = "service_v4yeshf";
+const EMAILJS_TEMPLATE_ID = "template_vc4cy58";
+
+emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY
+});
+
+
 /* =========================
    S-TECH SHOP PRODUCTS
 ========================= */
@@ -94,9 +107,11 @@ const products = [
    CART & WISHLIST
 ========================= */
 
-let cart = JSON.parse(localStorage.getItem("stechCart")) || [];
+let cart =
+    JSON.parse(localStorage.getItem("stechCart")) || [];
 
-let wishlist = JSON.parse(localStorage.getItem("stechWishlist")) || [];
+let wishlist =
+    JSON.parse(localStorage.getItem("stechWishlist")) || [];
 
 let currentProducts = [...products];
 
@@ -105,16 +120,21 @@ let currentProducts = [...products];
    DISPLAY PRODUCTS
 ========================= */
 
-function displayProducts(list = products){
+function displayProducts(list = products) {
 
-    const grid = document.getElementById("productGrid");
+    const grid =
+        document.getElementById("productGrid");
 
     grid.innerHTML = "";
 
-    if(list.length === 0){
+    if (list.length === 0) {
 
         grid.innerHTML = `
-            <div style="grid-column:1/-1;text-align:center;padding:50px;">
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+            ">
                 <h2>😔 No products found</h2>
                 <p>Try another search.</p>
             </div>
@@ -123,9 +143,11 @@ function displayProducts(list = products){
         return;
     }
 
+
     list.forEach(product => {
 
-        const liked = wishlist.includes(product.id);
+        const liked =
+            wishlist.includes(product.id);
 
         grid.innerHTML += `
 
@@ -141,7 +163,9 @@ function displayProducts(list = products){
                         ${product.category}
                     </div>
 
-                    <h3>${product.name}</h3>
+                    <h3>
+                        ${product.name}
+                    </h3>
 
                     <div class="price">
                         ৳${product.price.toLocaleString()}
@@ -152,13 +176,17 @@ function displayProducts(list = products){
                         <button
                             class="add-cart"
                             onclick="addToCart(${product.id})">
+
                             🛒 Add to Cart
+
                         </button>
 
                         <button
                             class="wishlist-btn"
                             onclick="toggleWishlist(${product.id})">
+
                             ${liked ? "❤️" : "♡"}
+
                         </button>
 
                     </div>
@@ -170,6 +198,7 @@ function displayProducts(list = products){
         `;
     });
 
+
     document.getElementById("resultText").innerText =
         `${list.length} product(s) found`;
 }
@@ -179,17 +208,21 @@ function displayProducts(list = products){
    ADD TO CART
 ========================= */
 
-function addToCart(id){
+function addToCart(id) {
 
-    const product = products.find(p => p.id === id);
+    const product =
+        products.find(p => p.id === id);
 
-    const existing = cart.find(item => item.id === id);
+    if (!product) return;
 
-    if(existing){
+    const existing =
+        cart.find(item => item.id === id);
+
+    if (existing) {
 
         existing.quantity++;
 
-    }else{
+    } else {
 
         cart.push({
             ...product,
@@ -202,7 +235,11 @@ function addToCart(id){
 
     updateCartCount();
 
-    alert(product.name + " added to cart!");
+    alert(
+        "✅ " +
+        product.name +
+        " added to cart!"
+    );
 }
 
 
@@ -210,13 +247,12 @@ function addToCart(id){
    SAVE CART
 ========================= */
 
-function saveCart(){
+function saveCart() {
 
     localStorage.setItem(
         "stechCart",
         JSON.stringify(cart)
     );
-
 }
 
 
@@ -224,14 +260,17 @@ function saveCart(){
    CART COUNT
 ========================= */
 
-function updateCartCount(){
+function updateCartCount() {
 
-    const count = cart.reduce(
-        (total,item) => total + item.quantity,
-        0
-    );
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total + item.quantity,
+            0
+        );
 
-    document.getElementById("cartCount").innerText = count;
+    document.getElementById("cartCount").innerText =
+        count;
 }
 
 
@@ -239,14 +278,13 @@ function updateCartCount(){
    OPEN CART
 ========================= */
 
-function openCart(){
+function openCart() {
 
     renderCart();
 
     document
         .getElementById("cartModal")
         .classList.add("show");
-
 }
 
 
@@ -254,12 +292,11 @@ function openCart(){
    CLOSE CART
 ========================= */
 
-function closeCart(){
+function closeCart() {
 
     document
         .getElementById("cartModal")
         .classList.remove("show");
-
 }
 
 
@@ -267,25 +304,39 @@ function closeCart(){
    DISPLAY CART
 ========================= */
 
-function renderCart(){
+function renderCart() {
 
     const container =
         document.getElementById("cartItems");
 
     container.innerHTML = "";
 
-    if(cart.length === 0){
+    if (cart.length === 0) {
 
         container.innerHTML = `
-            <div style="text-align:center;padding:30px;">
-                <div style="font-size:50px;">🛒</div>
-                <h3>Your cart is empty</h3>
-                <p>Add some products first.</p>
+            <div style="
+                text-align:center;
+                padding:30px;
+            ">
+
+                <div style="font-size:50px;">
+                    🛒
+                </div>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add some products first.
+                </p>
+
             </div>
         `;
 
-        document.getElementById("cartTotal").innerText =
-            "৳0";
+        document.getElementById(
+            "cartTotal"
+        ).innerText = "৳0";
 
         return;
     }
@@ -309,7 +360,8 @@ function renderCart(){
                 <div class="cart-item-info">
 
                     <strong>
-                        ${item.icon} ${item.name}
+                        ${item.icon}
+                        ${item.name}
                     </strong>
 
                     <small>
@@ -317,6 +369,7 @@ function renderCart(){
                     </small>
 
                 </div>
+
 
                 <div class="qty">
 
@@ -336,26 +389,30 @@ function renderCart(){
 
                 </div>
 
+
                 <strong>
                     ৳${itemTotal.toLocaleString()}
                 </strong>
 
+
                 <button
                     class="remove"
                     onclick="removeFromCart(${item.id})">
+
                     ✕
+
                 </button>
 
             </div>
 
         `;
-
     });
 
 
-    document.getElementById("cartTotal").innerText =
+    document.getElementById(
+        "cartTotal"
+    ).innerText =
         "৳" + total.toLocaleString();
-
 }
 
 
@@ -363,30 +420,32 @@ function renderCart(){
    CHANGE QUANTITY
 ========================= */
 
-function changeQuantity(id, amount){
+function changeQuantity(id, amount) {
 
-    const item = cart.find(
-        product => product.id === id
-    );
+    const item =
+        cart.find(
+            product => product.id === id
+        );
 
-    if(!item) return;
+    if (!item) return;
 
     item.quantity += amount;
 
-    if(item.quantity <= 0){
 
-        cart = cart.filter(
-            product => product.id !== id
-        );
+    if (item.quantity <= 0) {
 
+        cart =
+            cart.filter(
+                product => product.id !== id
+            );
     }
+
 
     saveCart();
 
     updateCartCount();
 
     renderCart();
-
 }
 
 
@@ -394,18 +453,18 @@ function changeQuantity(id, amount){
    REMOVE PRODUCT
 ========================= */
 
-function removeFromCart(id){
+function removeFromCart(id) {
 
-    cart = cart.filter(
-        product => product.id !== id
-    );
+    cart =
+        cart.filter(
+            product => product.id !== id
+        );
 
     saveCart();
 
     updateCartCount();
 
     renderCart();
-
 }
 
 
@@ -413,21 +472,24 @@ function removeFromCart(id){
    CATEGORY FILTER
 ========================= */
 
-function filterCategory(category){
+function filterCategory(category) {
 
     currentProducts =
         products.filter(
-            product => product.category === category
+            product =>
+                product.category === category
         );
 
-    displayProducts(currentProducts);
+    displayProducts(
+        currentProducts
+    );
+
 
     document
         .getElementById("products")
         .scrollIntoView({
-            behavior:"smooth"
+            behavior: "smooth"
         });
-
 }
 
 
@@ -437,87 +499,100 @@ function filterCategory(category){
 
 document
     .getElementById("searchForm")
-    .addEventListener("submit", function(e){
+    .addEventListener(
+        "submit",
+        function(e) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const keyword =
+            const keyword =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            if (keyword === "") {
+
+                currentProducts =
+                    [...products];
+
+            } else {
+
+                currentProducts =
+                    products.filter(
+                        product =>
+
+                            product.name
+                                .toLowerCase()
+                                .includes(keyword)
+
+                            ||
+
+                            product.category
+                                .toLowerCase()
+                                .includes(keyword)
+                    );
+            }
+
+
+            displayProducts(
+                currentProducts
+            );
+
+
             document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
-
-        if(keyword === ""){
-
-            currentProducts = [...products];
-
-        }else{
-
-            currentProducts =
-                products.filter(product =>
-
-                    product.name
-                        .toLowerCase()
-                        .includes(keyword)
-
-                    ||
-
-                    product.category
-                        .toLowerCase()
-                        .includes(keyword)
-
-                );
+                .getElementById("products")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
 
         }
-
-        displayProducts(currentProducts);
-
-        document
-            .getElementById("products")
-            .scrollIntoView({
-                behavior:"smooth"
-            });
-
-    });
+    );
 
 
 /* =========================
    SORT PRODUCTS
 ========================= */
 
-function sortProducts(){
+function sortProducts() {
 
     const value =
-        document.getElementById("sortSelect").value;
+        document
+            .getElementById("sortSelect")
+            .value;
 
 
-    if(value === "low"){
+    if (value === "low") {
 
         currentProducts.sort(
-            (a,b) => a.price - b.price
+            (a, b) =>
+                a.price - b.price
         );
 
     }
 
-    else if(value === "high"){
+    else if (value === "high") {
 
         currentProducts.sort(
-            (a,b) => b.price - a.price
+            (a, b) =>
+                b.price - a.price
         );
 
     }
 
-    else{
+    else {
 
-        currentProducts = [...products];
+        currentProducts =
+            [...products];
 
     }
 
 
-    displayProducts(currentProducts);
-
+    displayProducts(
+        currentProducts
+    );
 }
 
 
@@ -525,16 +600,17 @@ function sortProducts(){
    WISHLIST
 ========================= */
 
-function toggleWishlist(id){
+function toggleWishlist(id) {
 
-    if(wishlist.includes(id)){
+    if (wishlist.includes(id)) {
 
         wishlist =
             wishlist.filter(
-                productId => productId !== id
+                productId =>
+                    productId !== id
             );
 
-    }else{
+    } else {
 
         wishlist.push(id);
 
@@ -547,8 +623,9 @@ function toggleWishlist(id){
     );
 
 
-    displayProducts(currentProducts);
-
+    displayProducts(
+        currentProducts
+    );
 }
 
 
@@ -556,11 +633,13 @@ function toggleWishlist(id){
    SHOW WISHLIST
 ========================= */
 
-function showWishlist(){
+function showWishlist() {
 
-    if(wishlist.length === 0){
+    if (wishlist.length === 0) {
 
-        alert("❤️ Your wishlist is empty.");
+        alert(
+            "❤️ Your wishlist is empty."
+        );
 
         return;
     }
@@ -568,105 +647,400 @@ function showWishlist(){
 
     const items =
         products.filter(
-            product => wishlist.includes(product.id)
+            product =>
+                wishlist.includes(product.id)
         );
 
 
     currentProducts = items;
 
+
     displayProducts(items);
+
 
     document
         .getElementById("products")
         .scrollIntoView({
-            behavior:"smooth"
+            behavior: "smooth"
         });
-
 }
 
 
-/* =========================
+/* =========================================================
    CHECKOUT
-========================= */
+========================================================= */
 
-function checkout(){
+function checkout() {
 
-    if(cart.length === 0){
+    if (cart.length === 0) {
 
-        alert("Your cart is empty!");
+        alert(
+            "Your cart is empty!"
+        );
 
         return;
     }
 
 
-    let total = cart.reduce(
-        (sum,item) =>
-        sum + item.price * item.quantity,
-        0
-    );
-
-
-    const name =
-        prompt("Enter your name:");
-
-    if(!name) return;
-
-
-    const phone =
-        prompt("Enter your mobile number:");
-
-    if(!phone) return;
-
-
-    const address =
-        prompt("Enter your delivery address:");
-
-    if(!address) return;
-
-
-    alert(
-        "✅ Order placed successfully!\n\n" +
-
-        "Customer: " + name +
-        "\nPhone: " + phone +
-        "\nAddress: " + address +
-
-        "\n\nTotal: ৳" +
-        total.toLocaleString()
-    );
-
-
-    cart = [];
-
-    saveCart();
-
-    updateCartCount();
+    /* Close cart */
 
     closeCart();
 
+
+    /* Show checkout */
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("show");
+
+
+    renderCheckout();
 }
 
 
-/* =========================
-   CLOSE MODAL OUTSIDE
-========================= */
+/* =========================================================
+   RENDER CHECKOUT
+========================================================= */
 
-document
-    .getElementById("cartModal")
-    .addEventListener("click", function(e){
+function renderCheckout() {
 
-        if(e.target === this){
+    const container =
+        document.getElementById(
+            "checkoutItems"
+        );
 
-            closeCart();
+    container.innerHTML = "";
 
-        }
 
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        const subtotal =
+            item.price * item.quantity;
+
+        total += subtotal;
+
+
+        container.innerHTML += `
+
+            <div class="checkout-item">
+
+                <span>
+                    ${item.icon}
+                    ${item.name}
+                    × ${item.quantity}
+                </span>
+
+                <strong>
+                    ৳${subtotal.toLocaleString()}
+                </strong>
+
+            </div>
+
+        `;
     });
 
 
-/* =========================
+    document.getElementById(
+        "checkoutTotal"
+    ).innerText =
+        "৳" + total.toLocaleString();
+}
+
+
+/* =========================================================
+   CLOSE CHECKOUT
+========================================================= */
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("show");
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+document
+    .getElementById("checkoutForm")
+    .addEventListener(
+        "submit",
+        function(e) {
+
+            e.preventDefault();
+
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty!"
+                );
+
+                return;
+            }
+
+
+            /* Customer information */
+
+            const name =
+                document
+                    .getElementById("customerName")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("customerPhone")
+                    .value
+                    .trim();
+
+
+            const address =
+                document
+                    .getElementById("customerAddress")
+                    .value
+                    .trim();
+
+
+            const note =
+                document
+                    .getElementById("customerNote")
+                    .value
+                    .trim();
+
+
+            if (!name || !phone || !address) {
+
+                alert(
+                    "Please fill all required fields."
+                );
+
+                return;
+            }
+
+
+            /* Calculate total */
+
+            const total =
+                cart.reduce(
+                    (sum, item) =>
+                        sum +
+                        item.price *
+                        item.quantity,
+                    0
+                );
+
+
+            /* Generate Order ID */
+
+            const orderId =
+                "ST-" +
+                Date.now()
+                    .toString()
+                    .slice(-8);
+
+
+            /* Order products */
+
+            let orderItems = "";
+
+
+            cart.forEach(
+                (item, index) => {
+
+                    const subtotal =
+                        item.price *
+                        item.quantity;
+
+
+                    orderItems +=
+                        `${index + 1}. ${item.name}\n` +
+                        `   Price: ৳${item.price.toLocaleString()}\n` +
+                        `   Quantity: ${item.quantity}\n` +
+                        `   Subtotal: ৳${subtotal.toLocaleString()}\n\n`;
+                }
+            );
+
+
+            /* Date */
+
+            const orderDate =
+                new Date().toLocaleString(
+                    "en-BD",
+                    {
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    }
+                );
+
+
+            /* EmailJS parameters */
+
+            const templateParams = {
+
+                order_id: orderId,
+
+                customer_name: name,
+
+                customer_phone: phone,
+
+                customer_address: address,
+
+                customer_note:
+                    note || "No note",
+
+                order_items:
+                    orderItems,
+
+                order_total:
+                    "৳" +
+                    total.toLocaleString(),
+
+                order_date:
+                    orderDate
+
+            };
+
+
+            /* Button */
+
+            const button =
+                document.getElementById(
+                    "placeOrderBtn"
+                );
+
+
+            button.disabled = true;
+
+            button.innerText =
+                "⏳ Sending Order...";
+
+
+            /* Send Email */
+
+            emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                templateParams
+            )
+
+            .then(function(response) {
+
+                console.log(
+                    "Order email sent:",
+                    response
+                );
+
+
+                alert(
+                    "✅ Order Successfully Placed!\n\n" +
+                    "Order ID: " +
+                    orderId +
+                    "\n\n" +
+                    "Your order request has been sent to S-Tech Shop."
+                );
+
+
+                /* Empty cart */
+
+                cart = [];
+
+
+                saveCart();
+
+                updateCartCount();
+
+
+                /* Reset form */
+
+                document
+                    .getElementById(
+                        "checkoutForm"
+                    )
+                    .reset();
+
+
+                closeCheckout();
+
+            })
+
+            .catch(function(error) {
+
+                console.error(
+                    "EmailJS Error:",
+                    error
+                );
+
+
+                alert(
+                    "❌ Order পাঠানো যায়নি!\n\n" +
+                    "EmailJS configuration অথবা Template settings check করুন."
+                );
+
+            })
+
+            .finally(function() {
+
+                button.disabled = false;
+
+                button.innerText =
+                    "📧 Place Order";
+
+            });
+
+        }
+    );
+
+
+/* =========================================================
+   CLOSE CART OUTSIDE
+========================================================= */
+
+document
+    .getElementById("cartModal")
+    .addEventListener(
+        "click",
+        function(e) {
+
+            if (e.target === this) {
+
+                closeCart();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   CLOSE CHECKOUT OUTSIDE
+========================================================= */
+
+document
+    .getElementById("checkoutModal")
+    .addEventListener(
+        "click",
+        function(e) {
+
+            if (e.target === this) {
+
+                closeCheckout();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
    INITIAL LOAD
-========================= */
+========================================================= */
 
 displayProducts();
 
