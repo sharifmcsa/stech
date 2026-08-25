@@ -1,74 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>S-Tech Shop | Online Store</title>
+    <title>S-Tech Shop | Mobile, Laptop & Gadgets</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     TOP BAR
-========================= -->
-
+<!-- TOP BAR -->
 <div class="topbar">
-
-    <div class="container">
-
-        🚚 Free Delivery on selected orders
-
-        <span>
-            ☎ 01713549817 |
-            📧 support.stech.mym@gmail.com
-        </span>
-
+    <div class="container topbar-content">
+        <span>🚚 Free Delivery on selected orders</span>
+        <span>📞 01713549817 | ✉ support.stech.mym@gmail.com</span>
     </div>
-
 </div>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
+<header class="header">
 
-<header>
+    <div class="container header-content">
 
-    <div class="container header-row">
+        <div class="logo">
+            <span>S-</span>TECH
+        </div>
 
-        <a class="logo" href="#">
-            S-<span>TECH</span>
-        </a>
-
-
-        <form class="search" id="searchForm">
-
+        <!-- SEARCH -->
+        <form class="search-box" id="searchForm">
             <input
+                type="text"
                 id="searchInput"
-                type="search"
                 placeholder="Search products..."
-                autocomplete="off"
             >
-
-            <button type="submit">
-                🔍 Search
-            </button>
-
+            <button type="submit">🔍</button>
         </form>
 
-
+        <!-- HEADER ACTIONS -->
         <div class="header-actions">
 
             <button onclick="showWishlist()">
-                ♡ Wishlist
+                ❤️
+                <span>Wishlist</span>
             </button>
 
             <button onclick="openCart()">
-                🛒 Cart
+                🛒
+                <span>Cart</span>
                 <b id="cartCount">0</b>
             </button>
 
@@ -76,103 +57,93 @@
 
     </div>
 
-
-    <!-- NAVIGATION -->
-
-    <nav>
-
-        <div class="container nav-row">
-
-            <a href="#home">Home</a>
-
-            <a href="#categories">
-                Categories
-            </a>
-
-            <a href="#products">
-                Products
-            </a>
-
-            <a href="#deals">
-                Deals
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
 
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- NAVIGATION -->
+<nav class="navbar">
 
-<main id="home">
+    <div class="container nav-content">
+
+        <a href="#">Home</a>
+
+        <div class="dropdown">
+            <button>Mobile ▾</button>
+
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterCategory('Mobile')">Smartphone</a>
+                <a href="#" onclick="filterCategory('Mobile')">Feature Phone</a>
+            </div>
+        </div>
 
 
-<!-- =========================
-     HERO
-========================= -->
+        <div class="dropdown">
+            <button>Computer ▾</button>
 
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterCategory('Laptop')">Laptop</a>
+                <a href="#" onclick="filterCategory('Laptop')">Desktop</a>
+                <a href="#" onclick="filterCategory('Laptop')">Monitor</a>
+            </div>
+        </div>
+
+
+        <div class="dropdown">
+            <button>Gadgets ▾</button>
+
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterCategory('Gadget')">Smart Watch</a>
+                <a href="#" onclick="filterCategory('Gadget')">Earbuds</a>
+                <a href="#" onclick="filterCategory('Gadget')">Speaker</a>
+            </div>
+        </div>
+
+
+        <a href="#" onclick="filterCategory('Accessories')">
+            Accessories
+        </a>
+
+        <a href="#products">All Products</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
 <section class="hero">
 
-    <div class="container hero-grid">
+    <div class="container hero-content">
 
-        <div>
+        <div class="hero-text">
 
-            <p class="eyebrow">
-                SMART SHOPPING • BEST VALUE
-            </p>
-
+            <span class="small-title">WELCOME TO S-TECH</span>
 
             <h1>
-                Technology made
-                <span>simple.</span>
+                Best Technology<br>
+                At The Best Price
             </h1>
 
-
-            <p class="hero-text">
-
-                Shop routers, laptops,
-                networking equipment,
-                accessories and everyday
-                tech products from one
-                modern online store.
-
+            <p>
+                Discover smartphones, laptops, gadgets and
+                accessories at affordable prices.
             </p>
 
-
-            <a
-                class="primary-btn"
-                href="#products"
-            >
+            <button class="shop-btn" onclick="scrollToProducts()">
                 Shop Now →
-            </a>
+            </button>
 
         </div>
 
 
-        <div class="hero-art">
+        <div class="hero-image">
 
-            <div class="circle">
-                💻
-            </div>
+            <div class="circle"></div>
 
-            <div class="floating">
-                📡
-                <br>
-                <small>Networking</small>
-            </div>
-
-            <div class="floating f2">
-                ⌨️
-                <br>
-                <small>Accessories</small>
+            <div class="phone">
+                📱
             </div>
 
         </div>
@@ -182,139 +153,106 @@
 </section>
 
 
-<!-- =========================
-     CATEGORIES
-========================= -->
-
-<section
-    class="section"
-    id="categories"
->
+<!-- CATEGORY -->
+<section class="categories">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-title">
+            <h2>Shop By Category</h2>
+            <p>Choose your favorite category</p>
+        </div>
+
+
+        <div class="category-grid">
+
+            <div class="category-card"
+                 onclick="filterCategory('Mobile')">
+                <div class="category-icon">📱</div>
+                <h3>Mobile</h3>
+                <p>Smartphones & Phones</p>
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Laptop')">
+                <div class="category-icon">💻</div>
+                <h3>Laptop</h3>
+                <p>Laptop & Computer</p>
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Gadget')">
+                <div class="category-icon">⌚</div>
+                <h3>Gadgets</h3>
+                <p>Smart gadgets</p>
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Accessories')">
+                <div class="category-icon">🎧</div>
+                <h3>Accessories</h3>
+                <p>Tech accessories</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span>FEATURED PRODUCTS</span>
+                <h2>Popular Products</h2>
+            </div>
+
+            <button onclick="showAllProducts()">
+                View All →
+            </button>
+
+        </div>
+
+
+        <div id="productGrid" class="product-grid"></div>
+
+    </div>
+
+</section>
+
+
+<!-- OFFER -->
+<section class="offer">
+
+    <div class="container offer-content">
+
+        <div>
+            <span>LIMITED TIME OFFER</span>
 
             <h2>
-                Shop by Category
+                Get Up To 30% OFF
             </h2>
 
-            <a href="#products">
-                View All →
-            </a>
+            <p>
+                Grab your favorite gadgets before the offer ends.
+            </p>
 
+            <button onclick="scrollToProducts()">
+                Shop Offers →
+            </button>
         </div>
 
-
-        <div class="categories">
-
-            <button
-                class="category"
-                onclick="filterCategory('Networking')"
-            >
-
-                📡
-
-                <strong>
-                    Networking
-                </strong>
-
-                <small>
-                    Routers & Switches
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Laptop')"
-            >
-
-                💻
-
-                <strong>
-                    Laptops
-                </strong>
-
-                <small>
-                    Work & Study
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Mobile')"
-            >
-
-                📱
-
-                <strong>
-                    Mobiles
-                </strong>
-
-                <small>
-                    Smart Devices
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Accessories')"
-            >
-
-                ⌨️
-
-                <strong>
-                    Accessories
-                </strong>
-
-                <small>
-                    Keyboard & Mouse
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('CCTV')"
-            >
-
-                📹
-
-                <strong>
-                    CCTV
-                </strong>
-
-                <small>
-                    Security Products
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Power')"
-            >
-
-                🔋
-
-                <strong>
-                    Power
-                </strong>
-
-                <small>
-                    UPS & Adapters
-                </small>
-
-            </button>
-
+        <div class="offer-icon">
+            🎧
         </div>
 
     </div>
@@ -322,173 +260,44 @@
 </section>
 
 
-<!-- =========================
-     DEALS
-========================= -->
-
-<section
-    class="section light"
-    id="deals"
->
+<!-- WHY CHOOSE US -->
+<section class="features">
 
     <div class="container">
 
-        <div class="deal">
+        <div class="section-title">
+            <h2>Why Choose S-Tech?</h2>
+        </div>
 
-            <div>
 
-                <p class="eyebrow">
-                    LIMITED TIME OFFER
-                </p>
+        <div class="feature-grid">
 
-                <h2>
-                    Upgrade your setup today!
-                </h2>
-
-                <p>
-                    Save on selected networking
-                    and computer accessories.
-                </p>
-
+            <div class="feature">
+                <span>🚚</span>
+                <h3>Fast Delivery</h3>
+                <p>Fast and reliable delivery service.</p>
             </div>
 
 
-            <a
-                class="primary-btn"
-                href="#products"
-            >
-                Explore Deals
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section
-    class="section"
-    id="products"
->
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div>
-
-                <h2>
-                    Featured Products
-                </h2>
-
-                <p id="resultText">
-                    Popular products for you
-                </p>
-
+            <div class="feature">
+                <span>🔒</span>
+                <h3>Secure Payment</h3>
+                <p>Your payment information is protected.</p>
             </div>
 
 
-            <select
-                id="sortSelect"
-                onchange="sortProducts()"
-            >
-
-                <option value="default">
-                    Sort by
-                </option>
-
-                <option value="low">
-                    Price: Low to High
-                </option>
-
-                <option value="high">
-                    Price: High to Low
-                </option>
-
-            </select>
-
-        </div>
+            <div class="feature">
+                <span>✅</span>
+                <h3>Original Products</h3>
+                <p>Quality and authentic products.</p>
+            </div>
 
 
-        <div
-            class="products"
-            id="productGrid"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FEATURES
-========================= -->
-
-<section class="section">
-
-    <div class="container features">
-
-        <div>
-
-            🚚
-
-            <strong>
-                Fast Delivery
-            </strong>
-
-            <span>
-                Nationwide delivery
-            </span>
-
-        </div>
-
-
-        <div>
-
-            🔒
-
-            <strong>
-                Secure Shopping
-            </strong>
-
-            <span>
-                Safe checkout
-            </span>
-
-        </div>
-
-
-        <div>
-
-            ↩️
-
-            <strong>
-                Easy Returns
-            </strong>
-
-            <span>
-                Customer friendly policy
-            </span>
-
-        </div>
-
-
-        <div>
-
-            ☎️
-
-            <strong>
-                Support
-            </strong>
-
-            <span>
-                We're here to help
-            </span>
+            <div class="feature">
+                <span>📞</span>
+                <h3>Customer Support</h3>
+                <p>We're here to help you.</p>
+            </div>
 
         </div>
 
@@ -496,26 +305,21 @@
 
 </section>
 
-</main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer id="contact">
 
     <div class="container footer-grid">
 
         <div>
 
-            <div class="logo">
-                S-<span>TECH</span>
+            <div class="footer-logo">
+                S-TECH
             </div>
 
             <p>
-                Modern technology shopping
-                for Bangladesh.
+                Your trusted online shop for mobile,
+                laptop, gadgets and accessories.
             </p>
 
         </div>
@@ -523,63 +327,35 @@
 
         <div>
 
-            <h3>
-                Shop
-            </h3>
+            <h3>Quick Links</h3>
 
-            <a href="#products">
-                Products
-            </a>
-
-            <a href="#categories">
-                Categories
-            </a>
-
-            <a href="#deals">
-                Deals
-            </a>
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
 
         </div>
 
 
         <div>
 
-            <h3>
-                Customer Care
-            </h3>
+            <h3>Categories</h3>
 
-            <a href="#">
-                Delivery
-            </a>
-
-            <a href="#">
-                Returns
-            </a>
-
-            <a href="#">
-                Privacy
-            </a>
+            <a href="#">Mobile</a>
+            <a href="#">Laptop</a>
+            <a href="#">Gadgets</a>
+            <a href="#">Accessories</a>
 
         </div>
 
 
         <div>
 
-            <h3>
-                Contact
-            </h3>
+            <h3>Contact</h3>
 
-            <p>
-                Mymensingh, Bangladesh
-            </p>
-
-            <p>
-                ☎ 01713549817
-            </p>
-
-            <p>
-                support.stech.mym@gmail.com
-            </p>
+            <p>📞 01713549817</p>
+            <p>✉ support.stech.mym@gmail.com</p>
+            <p>📍 Bangladesh</p>
 
         </div>
 
@@ -588,273 +364,38 @@
 
     <div class="copyright">
 
-        © 2026 S-Tech Shop.
+        © 2026 S-Tech Shop. All Rights Reserved.
 
     </div>
 
 </footer>
 
 
-<!-- =====================================================
-     CART MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="cartModal"
->
+<!-- CART MODAL -->
+<div id="cartModal" class="modal">
 
     <div class="modal-box">
 
-        <button
-            class="close"
-            onclick="closeCart()"
-        >
-            ×
-        </button>
+        <button class="close" onclick="closeCart()">×</button>
 
-
-        <h2>
-            🛒 Shopping Cart
-        </h2>
-
+        <h2>🛒 Your Cart</h2>
 
         <div id="cartItems"></div>
 
-
         <div class="cart-total">
-
-            Total:
-
-            <strong id="cartTotal">
-                ৳0
-            </strong>
-
+            Total: ৳<span id="cartTotal">0</span>
         </div>
 
-
-        <button
-            class="primary-btn full"
-            onclick="checkout()"
-        >
-
+        <button class="checkout-btn">
             Proceed to Checkout
-
         </button>
 
     </div>
 
 </div>
 
-
-<!-- =====================================================
-     CHECKOUT MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="checkoutModal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="close"
-            onclick="closeCheckout()"
-        >
-            ×
-        </button>
-
-
-        <h2>
-            📦 Customer Information
-        </h2>
-
-
-        <!-- ORDER SUMMARY -->
-
-        <div
-            id="checkoutItems"
-            style="
-                background:#f8fafc;
-                padding:15px;
-                border-radius:8px;
-                margin-bottom:20px;
-            "
-        ></div>
-
-
-        <div
-            style="
-                text-align:right;
-                font-size:20px;
-                margin-bottom:20px;
-            "
-        >
-
-            Total:
-
-            <strong id="checkoutTotal">
-                ৳0
-            </strong>
-
-        </div>
-
-
-        <!-- CUSTOMER FORM -->
-
-        <form id="checkoutForm">
-
-
-            <!-- NAME -->
-
-            <label
-                for="customerName"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Customer Name *
-            </label>
-
-
-            <input
-                type="text"
-                id="customerName"
-                placeholder="Enter your full name"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                "
-            >
-
-
-            <!-- PHONE -->
-
-            <label
-                for="customerPhone"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Mobile Number *
-            </label>
-
-
-            <input
-                type="tel"
-                id="customerPhone"
-                placeholder="01XXXXXXXXX"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                "
-            >
-
-
-            <!-- ADDRESS -->
-
-            <label
-                for="customerAddress"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Delivery Address *
-            </label>
-
-
-            <textarea
-                id="customerAddress"
-                placeholder="Enter your complete delivery address"
-                rows="4"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                    resize:vertical;
-                "
-            ></textarea>
-
-
-            <!-- NOTE -->
-
-            <label
-                for="customerNote"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Additional Note
-            </label>
-
-
-            <textarea
-                id="customerNote"
-                placeholder="Any additional information..."
-                rows="3"
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:20px;
-                    resize:vertical;
-                "
-            ></textarea>
-
-
-            <!-- PLACE ORDER -->
-
-            <button
-                type="submit"
-                class="primary-btn full"
-                id="placeOrderBtn"
-            >
-
-                📧 Place Order
-
-            </button>
-
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     EMAILJS
-===================================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-
-<!-- YOUR JAVASCRIPT -->
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
