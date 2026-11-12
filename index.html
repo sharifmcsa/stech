@@ -2,859 +2,138 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>S-Tech Shop | Online Store</title>
+    <title>IT Care - IT Service & Support</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<!-- =========================
-     TOP BAR
-========================= -->
-
-<div class="topbar">
-
     <div class="container">
 
-        🚚 Free Delivery on selected orders
+        <!-- Header Section -->
+        <header class="hero">
 
-        <span>
-            ☎ 01713549817 |
-            📧 support.stech.mym@gmail.com
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-    <div class="container header-row">
-
-        <a class="logo" href="#">
-            S-<span>TECH</span>
-        </a>
-
-
-        <form class="search" id="searchForm">
-
-            <input
-                id="searchInput"
-                type="search"
-                placeholder="Search products..."
-                autocomplete="off"
-            >
-
-            <button type="submit">
-                🔍 Search
-            </button>
-
-        </form>
-
-
-        <div class="header-actions">
-
-            <button onclick="showWishlist()">
-                ♡ Wishlist
-            </button>
-
-            <button onclick="openCart()">
-                🛒 Cart
-                <b id="cartCount">0</b>
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- NAVIGATION -->
-
-    <nav>
-
-        <div class="container nav-row">
-
-            <a href="#home">Home</a>
-
-            <a href="#categories">
-                Categories
-            </a>
-
-            <a href="#products">
-                Products
-            </a>
-
-            <a href="#deals">
-                Deals
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-    </nav>
-
-</header>
-
-
-<!-- =========================
-     MAIN
-========================= -->
-
-<main id="home">
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-    <div class="container hero-grid">
-
-        <div>
-
-            <p class="eyebrow">
-                SMART SHOPPING • BEST VALUE
-            </p>
-
-
-            <h1>
-                Technology made
-                <span>simple.</span>
-            </h1>
-
-
-            <p class="hero-text">
-
-                Shop routers, laptops,
-                networking equipment,
-                accessories and everyday
-                tech products from one
-                modern online store.
-
-            </p>
-
-
-            <a
-                class="primary-btn"
-                href="#products"
-            >
-                Shop Now →
-            </a>
-
-        </div>
-
-
-        <div class="hero-art">
-
-            <div class="circle">
-                💻
+            <div class="top">
+                <strong >IT Care</strong>
+                <span class="online">● Online Support</span>
             </div>
 
-            <div class="floating">
-                📡
-                <br>
-                <small>Networking</small>
-            </div>
+            <h1>Your IT Problems, Our Solutions!</h1>
 
-            <div class="floating f2">
-                ⌨️
-                <br>
-                <small>Accessories</small>
-            </div>
+            <p>Professional IT Service & Support at Your Doorstep.</p>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CATEGORIES
-========================= -->
-
-<section
-    class="section"
-    id="categories"
->
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <h2>
-                Shop by Category
-            </h2>
-
-            <a href="#products">
-                View All →
+            <a href="#request" class="request-btn">
+                Request a Service
             </a>
 
-        </div>
+        </header>
 
+        <!-- Services Section -->
+        <section class="services">
 
-        <div class="categories">
+            <h2>Our Services</h2>
 
-            <button
-                class="category"
-                onclick="filterCategory('Networking')"
-            >
+            <div class="service-grid">
 
-                📡
+                <div class="service-card">
+                    <img src="cctv.jpg" alt="CCTV Installation">
+                    <h3>CCTV Installation</h3>
+                    <p>Installation & Support</p>
+                </div>
 
-                <strong>
-                    Networking
-                </strong>
+                <div class="service-card">
+                    <img src="hrd.jpg" alt="Computer Repair">
+                    <h3>Computer Repair</h3>
+                    <p>Hardware Solutions</p>
+                </div>
 
-                <small>
-                    Routers & Switches
-                </small>
+                <div class="service-card">
+                    <img src="print.jpg" alt="Printer Repair">
+                    <h3>Printer Repair</h3>
+                    <p>Printer Servicing</p>
+                </div>
 
-            </button>
+                <div class="service-card">
+                    <img src="net.jpg" alt="Network Support">
+                    <h3>ISP Network</h3>
+                    <p>Network Support</p>
+                </div>
 
-
-            <button
-                class="category"
-                onclick="filterCategory('Laptop')"
-            >
-
-                💻
-
-                <strong>
-                    Laptops
-                </strong>
-
-                <small>
-                    Work & Study
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Mobile')"
-            >
-
-                📱
-
-                <strong>
-                    Mobiles
-                </strong>
-
-                <small>
-                    Smart Devices
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Accessories')"
-            >
-
-                ⌨️
-
-                <strong>
-                    Accessories
-                </strong>
-
-                <small>
-                    Keyboard & Mouse
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('CCTV')"
-            >
-
-                📹
-
-                <strong>
-                    CCTV
-                </strong>
-
-                <small>
-                    Security Products
-                </small>
-
-            </button>
-
-
-            <button
-                class="category"
-                onclick="filterCategory('Power')"
-            >
-
-                🔋
-
-                <strong>
-                    Power
-                </strong>
-
-                <small>
-                    UPS & Adapters
-                </small>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DEALS
-========================= -->
-
-<section
-    class="section light"
-    id="deals"
->
-
-    <div class="container">
-
-        <div class="deal">
-
-            <div>
-
-                <p class="eyebrow">
-                    LIMITED TIME OFFER
-                </p>
-
-                <h2>
-                    Upgrade your setup today!
-                </h2>
-
-                <p>
-                    Save on selected networking
-                    and computer accessories.
-                </p>
+                 <div class="service-card">
+                    <img src="lan.jpg.jpg" alt="LAN,CCTV,Server,Network">
+                    <h3>Office IT Support</h3>
+                    <p>LAN,CCTV,Server,Network</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="remot.jpg" alt="Anydesk Support">
+                    <h3>Remote IT Support</h3>
+                    <p>Anydesk Support</p>
+                </div>
 
             </div>
 
+        </section>
 
-            <a
-                class="primary-btn"
-                href="#products"
-            >
-                Explore Deals
-            </a>
+        <!-- Service Request Form -->
+        <section class="request-section" id="request">
 
-        </div>
+            <h2>Submit Your Service Request</h2>
 
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section
-    class="section"
-    id="products"
->
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div>
-
-                <h2>
-                    Featured Products
-                </h2>
-
-                <p id="resultText">
-                    Popular products for you
-                </p>
-
-            </div>
-
-
-            <select
-                id="sortSelect"
-                onchange="sortProducts()"
-            >
-
-                <option value="default">
-                    Sort by
-                </option>
-
-                <option value="low">
-                    Price: Low to High
-                </option>
-
-                <option value="high">
-                    Price: High to Low
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div
-            class="products"
-            id="productGrid"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FEATURES
-========================= -->
-
-<section class="section">
-
-    <div class="container features">
-
-        <div>
-
-            🚚
-
-            <strong>
-                Fast Delivery
-            </strong>
-
-            <span>
-                Nationwide delivery
-            </span>
-
-        </div>
-
-
-        <div>
-
-            🔒
-
-            <strong>
-                Secure Shopping
-            </strong>
-
-            <span>
-                Safe checkout
-            </span>
-
-        </div>
-
-
-        <div>
-
-            ↩️
-
-            <strong>
-                Easy Returns
-            </strong>
-
-            <span>
-                Customer friendly policy
-            </span>
-
-        </div>
-
-
-        <div>
-
-            ☎️
-
-            <strong>
-                Support
-            </strong>
-
-            <span>
-                We're here to help
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer id="contact">
-
-    <div class="container footer-grid">
-
-        <div>
-
-            <div class="logo">
-                S-<span>TECH</span>
-            </div>
-
-            <p>
-                Modern technology shopping
-                for Bangladesh.
+            <p class="subtitle">
+                Submit your problem to get IT support.
             </p>
 
-        </div>
+            <form class="request-form" action="submit_request.php" method="POST">
 
+    <input type="text"
+           name="customer_name"
+           placeholder="Your Full Name"
+           required>
 
-        <div>
+    <input type="tel"
+           name="mobile"
+           placeholder="Mobile Number"
+           required>
 
-            <h3>
-                Shop
-            </h3>
+    <input type="text"
+           name="address"
+           placeholder="Your Address"
+           required>
 
-            <a href="#products">
-                Products
-            </a>
+    <select name="service_type" required>
+        <option value="">Select Service</option>
+        <option value="CCTV Installation">CCTV Installation</option>
+        <option value="Computer Repair">Computer Repair</option>
+        <option value="Printer Repair">Printer Repair</option>
+        <option value="ISP Network Support">ISP Network Support</option>
+        <option value="Remote IT Support">Remote IT Support</option>
+        <option value="Office LAN Support">Office IT Support</option>
+        <option value="Other">Other IT Services</option>
+    </select>
 
-            <a href="#categories">
-                Categories
-            </a>
+    <textarea name="problem_description"
+              rows="4"
+              placeholder="Describe your problem..."
+              required></textarea>
 
-            <a href="#deals">
-                Deals
-            </a>
+    <button type="submit">Submit Request</button>
 
-        </div>
+</form>
 
-
-        <div>
-
-            <h3>
-                Customer Care
-            </h3>
-
-            <a href="#">
-                Delivery
-            </a>
-
-            <a href="#">
-                Returns
-            </a>
-
-            <a href="#">
-                Privacy
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Contact
-            </h3>
-
-            <p>
-                Mymensingh, Bangladesh
-            </p>
-
-            <p>
-                ☎ 01713549817
-            </p>
-
-            <p>
-                support.stech.mym@gmail.com
-            </p>
-
-        </div>
+    
+        <!-- Footer -->
+        <footer>
+            <p>IT Care - Online & Offline IT Service & Support</p>
+            <p>© 2026 All Rights Reserved.</p>
+        </footer>
 
     </div>
-
-
-    <div class="copyright">
-
-        © 2026 S-Tech Shop.
-
-    </div>
-
-</footer>
-
-
-<!-- =====================================================
-     CART MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="cartModal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="close"
-            onclick="closeCart()"
-        >
-            ×
-        </button>
-
-
-        <h2>
-            🛒 Shopping Cart
-        </h2>
-
-
-        <div id="cartItems"></div>
-
-
-        <div class="cart-total">
-
-            Total:
-
-            <strong id="cartTotal">
-                ৳0
-            </strong>
-
-        </div>
-
-
-        <button
-            class="primary-btn full"
-            onclick="checkout()"
-        >
-
-            Proceed to Checkout
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     CHECKOUT MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="checkoutModal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="close"
-            onclick="closeCheckout()"
-        >
-            ×
-        </button>
-
-
-        <h2>
-            📦 Customer Information
-        </h2>
-
-
-        <!-- ORDER SUMMARY -->
-
-        <div
-            id="checkoutItems"
-            style="
-                background:#f8fafc;
-                padding:15px;
-                border-radius:8px;
-                margin-bottom:20px;
-            "
-        ></div>
-
-
-        <div
-            style="
-                text-align:right;
-                font-size:20px;
-                margin-bottom:20px;
-            "
-        >
-
-            Total:
-
-            <strong id="checkoutTotal">
-                ৳0
-            </strong>
-
-        </div>
-
-
-        <!-- CUSTOMER FORM -->
-
-        <form id="checkoutForm">
-
-
-            <!-- NAME -->
-
-            <label
-                for="customerName"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Customer Name *
-            </label>
-
-
-            <input
-                type="text"
-                id="customerName"
-                placeholder="Enter your full name"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                "
-            >
-
-
-            <!-- PHONE -->
-
-            <label
-                for="customerPhone"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Mobile Number *
-            </label>
-
-
-            <input
-                type="tel"
-                id="customerPhone"
-                placeholder="01XXXXXXXXX"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                "
-            >
-
-
-            <!-- ADDRESS -->
-
-            <label
-                for="customerAddress"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Delivery Address *
-            </label>
-
-
-            <textarea
-                id="customerAddress"
-                placeholder="Enter your complete delivery address"
-                rows="4"
-                required
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:15px;
-                    resize:vertical;
-                "
-            ></textarea>
-
-
-            <!-- NOTE -->
-
-            <label
-                for="customerNote"
-                style="
-                    display:block;
-                    margin-bottom:6px;
-                    font-weight:bold;
-                "
-            >
-                Additional Note
-            </label>
-
-
-            <textarea
-                id="customerNote"
-                placeholder="Any additional information..."
-                rows="3"
-                style="
-                    width:100%;
-                    padding:12px;
-                    border:1px solid #ddd;
-                    border-radius:6px;
-                    margin-bottom:20px;
-                    resize:vertical;
-                "
-            ></textarea>
-
-
-            <!-- PLACE ORDER -->
-
-            <button
-                type="submit"
-                class="primary-btn full"
-                id="placeOrderBtn"
-            >
-
-                📧 Place Order
-
-            </button>
-
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     EMAILJS
-===================================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-
-<!-- YOUR JAVASCRIPT -->
-
 <script src="script.js"></script>
-
-
 </body>
-
 </html>
