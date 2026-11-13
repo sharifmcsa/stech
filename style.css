@@ -1,5 +1,5 @@
 
-/* =========================
+/* ========================================================================
    1. Basic Setup
 ========================= */
 
@@ -9,7 +9,11 @@
     box-sizing: border-box;
     
 }
-
+.logo {
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+}
 body {
     background: #000;
     color: #ffffff;
@@ -19,7 +23,7 @@ body {
 }
 
 
-/* =========================
+/* =========================================================================
    2. Main Container
 ========================= */
 
@@ -28,17 +32,17 @@ body {
     max-width: 900px;
     margin: 25px auto;
     padding: 15px;
-    border: 1px solid #292929;
+    border: 1px solid #1dd1a1;
     border-radius: 15px;
 }
 
 
-/* =========================
+/* =======================================================================
    3. Hero Header
 ========================= */
 
 .hero {
-    background: #173e70;
+    background: #0a3d62;
     padding: 20px;
     border-radius: 12px;
     margin: 15px 0;
@@ -87,7 +91,7 @@ body {
 }
 
 
-/* =========================
+/* ==========================================================================
    4. Services Section
 ========================= */
 
@@ -136,7 +140,7 @@ body {
 }
 
 
-/* =========================
+/* ========================================================================
    5. Request Form
 ========================= */
 
@@ -213,7 +217,7 @@ body {
 }
 
 
-/* =========================
+/* ===========================================================================
    6. Admin Dashboard
 ========================= */
 
@@ -241,7 +245,7 @@ body {
 }
 
 
-/* =========================
+/* ============================================================================
    7. Footer
 ========================= */
 
@@ -255,7 +259,7 @@ footer {
 }
 
 
-/* =========================
+/* ============================================================================
    8. Mobile Responsive
 ========================= */
 
@@ -313,7 +317,7 @@ footer {
 }
 
 
-/* =========================
+/* ======================================================================
    9. Small Mobile Screen
 ========================= */
 
@@ -331,4 +335,61 @@ footer {
         font-size: 19px;
     }
 
+}
+/*===========================================================================
+	10. Contact Section
+============================*/
+.contact-section {
+    background: #38ada9;
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.contact-section h2 {
+    color: #1b416f;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.contact-section > p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: left;
+    min-width: 220px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.contact-item > span {
+    font-size: 28px;
+}
+
+.contact-item h3 {
+    color: #1b416f;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.contact-item p,
+.contact-item a {
+    color: #555;
+    font-size: 14px;
+    text-decoration: none;
 }
